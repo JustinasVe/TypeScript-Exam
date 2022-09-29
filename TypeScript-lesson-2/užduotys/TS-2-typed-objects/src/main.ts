@@ -53,7 +53,7 @@ printCouple(person1, person2);
 // Atlikite užduotis, funkcijas aprašydami tipais
 console.group('1. Sukurkite funkciją kuri patikrina ar žmogus yra pilnametis');
 {
-  const isAdult = () => {};
+  const isAdult = (p: Person): boolean => p.age >= 18;
   
   console.log({
     [createFullname(person1)]: isAdult(person1),
@@ -65,7 +65,9 @@ console.groupEnd();
 
 console.group('2. Sukurkite funkciją, kuri patikrina ar Person tipo objektas turi ūgį ir svorį');
 {
-  const isFullyDescribedPerson = () => {};
+  type IsFullyDescribedPerson = (p: Person) => boolean
+
+  const isFullyDescribedPerson: IsFullyDescribedPerson = (person) => Boolean(person.height) && Boolean(person.weight);
   
   console.log({
     [createFullname(person1)]: isFullyDescribedPerson(person1),
@@ -77,7 +79,7 @@ console.groupEnd();
 
 console.group('3. Sukurkite funkciją, kuri grąžina žmogaus incialus');
 {
-  const createInitials = () => {};
+  const createInitials = (p: Person) => p.name[0] + p.surname[0];
   
   console.log({
     [createFullname(person1)]: createInitials(person1),

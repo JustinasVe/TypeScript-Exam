@@ -57,24 +57,82 @@ const flags2: FlagOptions = [true, false, false, true, true];
 console.group('Union operators - užduotys');
 {
   // ↓↓↓↓ Tipus apraškite čia ↓↓↓↓
+  type Accommodation = {
+    address: string,
+    type: 'House' | 'Flat'
+  };
 
+  type Car = {
+    brand: string,
+    model: string,
+    transmission: 'Automatic' | 'Manual'
+  };
+
+  type Assets = Accommodation[] | Car[];
   // ↑↑↑↑ Tipus apraškite čia ↑↑↑↑
 
   console.group('1. Aprašykite objekto tipą Accommodation, kurio savybė "type" būtų, "House" arba "Flat"');
   {
-    // sprendimo pavyzdžius spausdinkite čia 
+    const accommodation1: Accommodation = {
+      address: 'Kauno gatvė 1',
+      type: 'House'
+    };
+
+    const accommodation2: Accommodation = {
+      address: 'Vilniaus gatvė 1',
+      type: 'Flat'
+    };
+
+    console.log({
+      accommodation1,
+      accommodation2
+    })
   }
   console.groupEnd();
 
   console.group('2. Aprašykite objekto tipą Car, kurio savybė "transmission" būtų, "Automatic" arba "Manual"');
   {
-    // sprendimo pavyzdžius spausdinkite čia 
+    const car1: Car = {
+      brand: 'Ford',
+      model: 'Focus',
+      transmission: 'Manual'
+    };
+
+    const car2: Car = {
+      brand: 'Volkswagen',
+      model: 'Jetta',
+      transmission: 'Automatic'
+    };
+
+    console.log({
+      car1,
+      car2
+    });
   }
   console.groupEnd();
 
   console.group('3. Aprašykite tipą, kuris kintamajam leistų būti: arba Accommodation masyvu, arba Car masyvu');
   {
-    // sprendimo pavyzdžius spausdinkite čia 
+    const assets1: Assets = [{
+      address: 'Kauno gatvė 1',
+      type: 'House'
+    }, {
+      address: 'Vilniaus gatvė 1',
+      type: 'Flat'
+    }];
+
+    const assets2: Assets = [{
+      brand: 'Ford',
+      model: 'Focus',
+      transmission: 'Manual'
+    }, {
+      brand: 'Volkswagen',
+      model: 'Jetta',
+      transmission: 'Automatic'
+    }];
+
+    console.log(assets1);
+    console.log(assets2);
   }
   console.groupEnd();
 
